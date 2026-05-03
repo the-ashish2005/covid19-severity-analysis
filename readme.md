@@ -6,14 +6,11 @@
 <p align="center">
   Table of contents </br>
   <a href="#overview">Overview</a> •
-  <a href="#quickstart-with-the-data--models">Quickstart</a> •
-  <a href="#acknowledgements">Acknowledgements</a> 
+  <a href="#quickstart-with-the-data--models">Quickstart</a>
   </br> Resources </br>
   <a href="./data/county_data_abridged.csv">Data csv</a> •
   <a href="https://arxiv.org/abs/2005.07882">Paper</a> •
-  <a href="http://covidseverity.com/">Website</a> •
-  <a href="http://covidseverity.com/docs">Modeling docs</a> •
-  <a href="https://github.com/Yu-Group/covid19-matching">Dashboard code</a> 
+
 </p>
 
 # Overview
@@ -25,9 +22,7 @@
     - At the county level, our data include socioeconomic factors, social distancing scores, and COVID-19 cases/deaths from USA Facts and NYT
     - Easily downloadable as [processed csv](./data/county_data_abridged.csv) or full pipeline
     - Extensive documentation available [here](./data/list_of_columns.md)
-![](results/data_sources.png)
 - **[Paper link](https://arxiv.org/abs/2005.07882)**: "Curating a COVID-19 data repository and forecasting county-level death counts in the United States"
-- **[Project website](http://covidseverity.com/)**: http://covidseverity.com/
     - see [interactive county-level map](http://covidseverity.com/results/deaths.html) + [interactive hospital-level map](http://covidseverity.com/results/severity_map.html)
 ![](results/maps_static.png)
 - **[Modeling](./modeling/readme.md)**: Using this data, we have developed a short-term (3-5 days) forecasting model for mortality at the county level. This model combines a county-specific exponential growth model and a shared exponential growth model through a weighted average, where the weights depend on past prediction accuracy.
@@ -58,42 +53,4 @@ To get deaths predictions for our current best-performing model, the simplest wa
 from modeling.fit_and_predict import add_preds
 df = add_preds(df, NUM_DAYS_LIST=[1, 3, 5]) # adds keys like "Predicted Deaths 1-day", "Predicted Deaths 3-day"
 # NUM_DAYS_LIST is list of number of days in the future to predict
-```
-
-## Related county-level projects
-- [County-level data summaries from JHU](https://github.com/JieYingWu/COVID-19_US_County-level_Summaries)
-- [UChicago GeoData visualization team](https://geodacenter.github.io/covid/about)
-
-
-# Acknowledgements
-
-The UC Berkeley Departments of Statistics, EECS led by Professor Bin Yu (group members are all alphabetical by last name)
-
-- **[Yu group team](https://www.stat.berkeley.edu/~yugroup/people.html)** (Data/modeling): Nick Altieri, Rebecca Barter, James Duncan, Raaz Dwivedi, Karl Kumbier, Xiao Li, Robbie Netzorg, Briton Park, Chandan Singh (student lead), Yan Shuo Tan, Tiffany Tang, Yu Wang
-  - Summer team: Abhineet Agarwal, Maya Shen, Danqing Wang, Chao Zhang
-- [Response4Life](https://github.com/response4life) (Organization/distribution) team and volunteers, particularly Don Landwirth and Rick Brennan
-- [Medical team](https://emergency.ucsf.edu/people/aaron-kornblith-md) (Advice from a medical perspective): Roger Chaufournier, Aaron Kornblith, David Jaffe
-- Hospital-info collection: Matthew Shen, Anthony Rio, Miles Bishop, Josh Davis, and Dylan Goetting
-- [Kolak group team](https://geodacenter.github.io/covid/about) (Geospatial visualization): Qinyun Lin
-- Support from Google: Cat Allman and Peter Norvig
-- [Shen Group team](https://shen.ieor.berkeley.edu/) (IEOR): Junyu Cao, Shunan Jiang, Pelagie Elimbi Moudio
-- Helpful input from many including: SriSatish Ambati, Rob Crockett, Tina Elassia-Rad, Marty Elisco, Nick Jewell, Valerie Isham, Valerie Karplus, Andreas Lange, Ying Lu, Samuel Scarpino, Jas Sekhon, Phillip Stark, Jacob Steinhardt, Suzanne Tamang, Brian Yandell, Tarek Zohdi
-- Thanks to support from AWS and Google
-- Additionally, we would like to thank our sources, which can be found in the [data readme](./data/readme.md)
-
-To reference, please cite [the paper](https://arxiv.org/abs/2005.07882):
-```c
-
-@article{altieri2020Curating,
-  journal = {Harvard Data Science Review},
-  doi = {10.1162/99608f92.1d4e0dae},
-  note = {https://hdsr.mitpress.mit.edu/pub/p6isyf0g},
-  title = {Curating a COVID-19 Data Repository and Forecasting County-Level DeathCounts in the United States},
-  url = {https://hdsr.mitpress.mit.edu/pub/p6isyf0g},
-  author = {Altieri, Nick and Barter, Rebecca L and Duncan, James and Dwivedi, Raaz and Kumbier, Karl and Li, Xiao and Netzorg, Robert and Park, Briton and Singh, Chandan and Tan, Yan Shuo and Tang, Tiffany and Wang, Yu and Zhang, Chao and Yu, Bin},
-  date = {2020-11-03},
-  year = {2020},
-  month = {11},
-  day = {3},
-}
 ```
