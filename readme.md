@@ -9,7 +9,7 @@
   <a href="#quickstart-with-the-data--models">Quickstart</a>
   </br> Resources </br>
   <a href="./data/county_data_abridged.csv">Data csv</a> •
-  <a href="https://arxiv.org/abs/2005.07882">Paper</a> •
+  <a href="https://arxiv.org/abs/2005.07882">Paper</a>
 
 </p>
 
